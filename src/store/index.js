@@ -12,7 +12,7 @@ export default new Vuex.Store({
   mutations: {
     // 切换欢迎页
     changeWelcomeFlag(state) {
-      state.isWelcome = !state.isWelcome;
+      state.isWelcome = true;
     }
   },
   // 数据操作 / 计算
