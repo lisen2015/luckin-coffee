@@ -1,2 +1,95 @@
 # luckin-coffee
-Vue Study for luckin-coffee
+
+> Vue Study - luckin Coffee
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+```
+
+> 安装 Vuex
+### npm安装
+``` bash
+  npm install vuex --save
+```
+
+---
+> 安装Element-UI
+### npm安装
+``` bash
+  npm i element-ui -S
+```
+
+### 在main.js中引入
+``` javascript
+import Vue from 'vue';
+// 引入 ElementUI
+import ElementUI from 'element-ui';
+// 引入主题CSS
+import 'element-ui/lib/theme-chalk/index.css';
+import App from './App.vue';
+
+// 全局注册
+Vue.use(ElementUI);
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});
+
+```
+
+> 参考
+
+http://element.eleme.io/#/zh-CN/component/quickstart
+
+---
+
+> Vue install less
+### Step1：在项目中安装Less
+``` bash
+  $ npm install less less-loader --save
+```
+### Step2：配置Less解析器
+#### 在webpack.base.conf.js中，modules结节下的rules节点中添加Less的解析器，如下所示：
+``` json
+  module: {
+    rules: [
+       {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass","style-loader!css-loader!less-loader"]
+      },
+```
+### Step3: 书写Less
+``` html
+  <style lang="less">
+      ···
+  </style>
+```
+
+> 参考文档
+
+  http://lesscss.cn/
+
+  http://less.bootcss.com/#
+
+  http://www.bootcss.com/p/lesscss/
+
+  https://www.cnblogs.com/lin-dong/p/6711224.html
+
+  https://www.zhihu.com/question/50135522
+
+
+---
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
