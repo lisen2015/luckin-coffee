@@ -75,16 +75,28 @@ export default {
     margin: 0px;
     padding: 0px;
     .item {
-      padding-top: 5px;
+      padding-top: 10px;
       list-style: none;
       float: left;
-      line-height: 20px;
       text-align: center;
       width: 20%;
+
+      div {
+        color: #999;
+        font-size: 12px;
+        i {
+          font-size: 18px;
+        }
+      }
     }
     .item.active {
-      background-color: #ccc;
-      border-bottom: 5px solid #1c28b0;
+      div {
+        i {
+          color: #0c5396;
+        }
+      }
+      // background-color: #ccc;
+      // border-bottom: 5px solid #1c28b0;
     }
   }
 }

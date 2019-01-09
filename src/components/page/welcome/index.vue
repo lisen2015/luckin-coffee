@@ -3,11 +3,16 @@
     <div class="btn-back">
       <div class="box" v-if="loadShow" @click="hideWelcome">
         跳过
-        <i>{{loadTime}} s</i>
+        <i>{{loadTime}}s</i>
       </div>
     </div>
-    <img src="@/assets/pro.png" class="welcome-pro-img" alt v-if="loadShow">
-    <img src="@/assets/welcome.jpg" class="welcome-bg-img" alt>
+    <!-- <img src="@/assets/banner_2.jpg" class="welcome-pro-img" alt v-if="loadShow"> -->
+    <el-carousel class="swiper_banner" :autoplay='true' arrow='always'>
+      <el-carousel-item v-for="item in itemBanner" :key="item.id">
+        <img :src="item.src" class="welcome-pro-img" alt="">
+      </el-carousel-item>
+    </el-carousel>
+    <img src="@/assets/logo_2560.png" class="welcome-bg-img" alt>
   </div>
 </template>
 
@@ -16,9 +21,31 @@ export default {
   name: "Welcome",
   data() {
     return {
+      itemBanner: [
+        {
+          id: 1,
+          src: './static/images/banner_3.jpg',
+          link: 'javascript:;'
+        },
+        {
+          id: 2,
+          src: './static/images/banner_4.jpg',
+          link: 'javascript:;'
+        },
+        {
+          id: 3,
+          src: './static/images/banner_1.jpg',
+          link: 'javascript:;'
+        },
+        {
+          id: 4,
+          src: './static/images/banner_2.jpg',
+          link: 'javascript:;'
+        }
+      ],
       loadShow: false,
       loadTime: 10,
-      sleepLoad: 3000
+      sleepLoad: 1000
     };
   },
   mounted() {
@@ -30,7 +57,7 @@ export default {
         _this.loadTime -= 1;
         if (_this.loadTime === 0) {
           window.clearInterval(loadTimer);
-          _this.$store.commit('changeWelcomeFlag');
+          _this.$store.commit("changeWelcomeFlag");
         }
       }, 1000);
     }, _this.sleepLoad);
@@ -38,7 +65,7 @@ export default {
   methods: {
     hideWelcome() {
       const _this = this;
-      _this.$store.commit('changeWelcomeFlag');
+      _this.$store.dispatch("commitWelcomeFlag");
     }
   }
 };
@@ -49,11 +76,22 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
-  background-color: #1c28b0;
+  // background-color: #1c28b0;
+
+  .swiper_banner {
+    top: 10%;
+    width: 100%;
+    height: 260px;
+    position: absolute;
+    .welcome-pro-img {
+      // width: 100%;
+      height: 100%;
+    }
+  }
 
   .btn-back {
     .box {
-      color: #fff;
+      color: #999;
       font-size: 14px;
       top: 20px;
       right: 20px;
@@ -70,16 +108,33 @@ export default {
     }
   }
 
-  .welcome-pro-img {
-    top: 10%;
-    width: 100%;
-    position: absolute;
-  }
-
   .welcome-bg-img {
     width: 100%;
     position: absolute;
     bottom: 0px;
+  }
+
+  // @-webkit-keyframes fadeInOut {
+  //   0% {
+  //     opacity: 0;
+  //   }
+  //   50% {
+  //     opacity: 0.5;
+  //   }
+  //   100% {
+  //     opacity: 1;
+  //   }
+  // }
+
+  .welcome-pro-img {
+    // top: 10%;
+    // width: 100%;
+    // position: absolute;
+
+    // -webkit-animation-name: fadeInOut; /*动画名称*/
+    // -webkit-animation-duration: 1.5s; /*动画持续时间*/
+    // -webkit-animation-iteration-count: 1; /*动画次数*/
+    // -webkit-animation-delay: 0s; /*延迟时间*/
   }
 }
 </style>
