@@ -25,9 +25,7 @@ export default {
     }
   },
   components: {},
-  mounted() {
-    console.log();
-  }
+  mounted() {}
 };
 </script>
 

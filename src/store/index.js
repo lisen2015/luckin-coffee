@@ -17,9 +17,9 @@ export default new Vuex.Store({
   },
   // 数据操作 / 计算
   getters: {
-    doneTodos: state => {
-      return state.todos.filter(todo => todo.done)
-    }
+    // doneTodos: state => {
+    //   return state.todos.filter(todo => todo.done)
+    // }
   },
   // 异步操作
   actions: {

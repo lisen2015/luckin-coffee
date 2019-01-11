@@ -34,11 +34,12 @@ export default new Router({
     },
     {
       path: '/shopMenu',
-      name: 'ShopMenu',
+      // name: 'ShopMenu',
       component: ShopMenu,
       children: [
         {
           path: '/',
+          name: 'toPopularityTop',
           component: PopularityTop
         },
         {
@@ -73,7 +74,8 @@ export default new Router({
         },
         {
           path: '*',
-          redirect: '/'
+          name: 'redirectPopularityTop',
+          redirect: '/popularityTop'
         }
       ]
     },
