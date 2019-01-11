@@ -17,11 +17,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-#about {
-  width: 100%;
-  font-size: 30px;
-  text-align: center;
-}
+<style scoped>
+@import "./style.css";
 </style>
 

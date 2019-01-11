@@ -1,59 +1,31 @@
 <template>
   <div id="Menu">
     <ul class="item-list">
-      <li class="item" :class="classActive('index')" @click="handleClick('index')">
+      <li class="item" v-for="item in itemList" :class="[item.index == defActive ? 'active' : '']" @click="handleClick(item.index)" :key="item.id">
         <div>
-          <i class="el-icon-location"></i>
+          <i :class="item.icon"></i>
         </div>
-        <div>首页</div>
-      </li>
-      <li class="item" :class="classActive('shopMenu')" @click="handleClick('shopMenu')">
-        <div>
-          <i class="el-icon-tickets"></i>
-        </div>
-        <div>菜单</div>
-      </li>
-      <li class="item" :class="classActive('order')" @click="handleClick('order')">
-        <div>
-          <i class="el-icon-edit"></i>
-        </div>
-        <div>订单</div>
-      </li>
-      <li class="item" :class="classActive('shopping')" @click="handleClick('shopping')">
-        <div>
-          <i class="el-icon-goods"></i>
-        </div>
-        <div>购物车</div>
-      </li>
-      <li class="item" :class="classActive('about')" @click="handleClick('about')">
-        <div>
-          <i class="el-icon-info"></i>
-        </div>
-        <div>我的</div>
+        <div>{{item.name}}</div>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import Index from './script'
 export default {
-  name: "Menu",
+  name: "bottom-menu",
   data() {
     return {
-      defActive: "index"
+      itemList: Index.item,
+      defActive: Index.item[0].index
     };
   },
-  computed: {
-    //
-  },
+  computed: {},
   mounted() {
     const _this = this;
   },
   methods: {
-    classActive(active) {
-      const _this = this;
-      return _this.defActive === active ? "active" : "";
-    },
     handleClick(active) {
       const _this = this;
       _this.defActive = active;
@@ -63,42 +35,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-#Menu {
-  width: 100%;
-  height: 50px;
-  position: fixed;
-  background-color: #dedfea;
-  bottom: 0px;
-  .item-list {
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    .item {
-      padding-top: 10px;
-      list-style: none;
-      float: left;
-      text-align: center;
-      width: 20%;
-
-      div {
-        color: #999;
-        font-size: 12px;
-        i {
-          font-size: 18px;
-        }
-      }
-    }
-    .item.active {
-      div {
-        i {
-          color: #0c5396;
-        }
-      }
-      // background-color: #ccc;
-      // border-bottom: 5px solid #1c28b0;
-    }
-  }
-}
+<style scoped>
+@import "./style.css";
 </style>
 

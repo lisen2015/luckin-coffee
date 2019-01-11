@@ -1,12 +1,10 @@
 <template>
-  <div id="shopping">
-    购物车
-  </div>
+  <div id="MasterCoffee">大师咖啡</div>
 </template>
 
 <script>
 export default {
-  name: "shopping",
+  name: "masterCoffee",
   data() {
     return {};
   },
@@ -20,4 +18,3 @@ export default {
 <style scoped>
 @import "./style.css";
 </style>
-

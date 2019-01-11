@@ -1,4 +1,8 @@
 import Vue from 'vue'
-import layContainer from './layout/lay-container'
+import Welcome from "./page/welcome/index";
+import bottomMenu from "./common/bottom-menu/index";
 
-Vue.component(layContainer.name, layContainer)
+
+Vue.component(Welcome.name, Welcome)
+Vue.component(bottomMenu.name, bottomMenu)
+

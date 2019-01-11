@@ -1,7 +1,5 @@
 <template>
-  <div id="order">
-    订单
-  </div>
+  <div id="order">订单</div>
 </template>
 
 <script>
@@ -17,11 +15,6 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-#order {
-  width: 100%;
-  font-size: 30px;
-  text-align: center;
-}
+<style scoped>
+@import "./style.css";
 </style>
-

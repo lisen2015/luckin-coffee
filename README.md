@@ -18,6 +18,57 @@ npm run build
 npm run build --report
 ```
 
+> 安装axios
+### npm安装
+``` bash
+  npm install --save axios
+```
+
+####
+在入口main.js中导入axios 并将axios写入vue的原型，这样就能更简单的使用。
+
+``` javascript
+import axios from 'axios'
+import Qs from 'qs'
+//QS是axios库中带的，不需要我们再npm安装一个
+
+Vue.prototype.axios = axios;
+Vue.prototype.qs = Qs;
+```
+
+#### 使用Demo
+``` javascript
+this.axios.post('/api/test',this.qs.stringify({'name':'xiaoming'}),{
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+}).then(res => {
+  //控制台打印请求成功时返回的数据
+  console.log(res.data)
+}).catch(err => {
+  if(err.response) {
+    //控制台打印错误返回的内容
+    console.log(err.response)
+  }
+})
+```
+##### `# bind(this) 异步绑定 改变this指向`
+``` javascript
+this.axios.post('/api/test',this.qs.stringify({'name':'xiaoming'}),{
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
+}).then(function (res) {
+  //控制台打印请求成功时返回的数据
+  console.log(res.data)
+}.bind(this)).catch(function (err) {
+  if(err.response) {
+    //控制台打印错误返回的内容
+    console.log(err.response)
+  }
+}.bind(this))
+```
+
 > 安装 Vuex
 ### npm安装
 ``` bash

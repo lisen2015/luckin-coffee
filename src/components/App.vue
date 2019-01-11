@@ -2,13 +2,11 @@
   <div id="app">
     <Welcome v-if="!isWelcome"/>
     <router-view v-if="isWelcome" class="container"/>
-    <Menu v-if="isWelcome"/>
+    <bottom-menu v-if="isWelcome"/>
   </div>
 </template>
 
 <script>
-import Welcome from "com/page/welcome/index";
-import Menu from "com/common/bottom-menu/index";
 
 export default {
   name: "App",
@@ -26,10 +24,7 @@ export default {
       return this.$store.state.isWelcome;
     }
   },
-  components: {
-    Welcome: Welcome,
-    Menu: Menu
-  },
+  components: {},
   mounted() {
     console.log();
   }
