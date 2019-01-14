@@ -141,6 +141,172 @@ http://element.eleme.io/#/zh-CN/component/quickstart
 
   https://www.zhihu.com/question/50135522
 
+---
+
+> vue-seamless-scroll
+
+#### `Vue 列表滚动`
+
+https://github.com/chenxuan0000/vue-seamless-scroll
+
+> npm 安装
+
+``` bash
+  npm install vue-seamless-scroll --save
+```
+
+##### 模版引入
+``` html
+  <seamlessScroll :data="newsList" class="SeamlessScroll" :class-option="classOption" @ScrollEnd="end">
+    ··· ···
+    </seamlessScroll>
+```
+``` javascript
+import vueSeamless from 'vue-seamless-scroll'
+export default {
+  data() {
+    return {
+      newsList: Index.infoList, // 数据源
+      liHeight: 35, // 单条记录高度
+      options: {
+        // step: 1, //步长 越大滚动速度越快
+        limitMoveNum: 0, //启动无缝滚动最小数据量 this.dataList.length
+        // hoverStop: true, //是否启用鼠标hover控制
+        // direction: 0, //1 往上 0 往下
+        // openWatch: true, //开启data实时监听
+        // singleHeight: 0, //单条数据高度有值hoverStop关闭
+        // waitTime: 3000 //单步停止等待时间
+      }
+    };
+  },
+  components: {
+    vueSeamless
+  },
+  omputed: {
+    classOption() {
+      const _this = this;
+      return _this.options;
+    }
+  },
+    mounted() {
+    const _this = this;
+    // 获取模块高度
+    const elHeight = _this.$refs.PopularityTop.offsetHeight;
+    const et = parseInt(elHeight / _this.liHeight);
+    // 单页显示数据总数 / 是否滚动
+    _this.options.limitMoveNum =
+      elHeight % _this.liHeight > 0 ? et + 1 : et;
+  },
+  methods: {
+    end() {
+      // console.log("ScrollEnd");
+    }
+  }
+}
+
+```
+
+
+<table>
+<thead>
+<tr>
+<th align="left">key</th>
+<th>description</th>
+<th>default</th>
+<th>val</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>step</code></td>
+<td>the faster the rolling speed is faster</td>
+<td><code>1</code></td>
+<td><code>Number</code></td>
+</tr>
+<tr>
+<td align="left"><code>limitMoveNum</code></td>
+<td>start seamless scrolling minimum data length</td>
+<td><code>5</code></td>
+<td><code>Number</code></td>
+</tr>
+<tr>
+<td align="left"><code>hoverStop</code></td>
+<td>mouse hover control is enabled</td>
+<td><code>true</code></td>
+<td><code>Boolean</code></td>
+</tr>
+<tr>
+<td align="left"><code>direction</code></td>
+<td>0 down、 1 up 、 2 left 、 3 right</td>
+<td><code>1</code></td>
+<td><code>Number</code></td>
+</tr>
+<tr>
+<td align="left"><code>openTouch</code></td>
+<td>open mobile touch</td>
+<td><code>true</code></td>
+<td><code>Boolean</code></td>
+</tr>
+<tr>
+<td align="left"><code>singleHeight</code></td>
+<td>one single stop height(default zero is seamless) =&gt; direction 0/1</td>
+<td><code>0</code></td>
+<td><code>Number</code></td>
+</tr>
+<tr>
+<td align="left"><code>singleWidth</code></td>
+<td>one single stop width(default zero is seamless) =&gt; direction 2/3</td>
+<td><code>0</code></td>
+<td><code>Number</code></td>
+</tr>
+<tr>
+<td align="left"><code>waitTime</code></td>
+<td>one single data stop wait time(ms)</td>
+<td><code>1000</code></td>
+<td><code>Number</code></td>
+</tr>
+<tr>
+<td align="left"><code>switchOffset</code></td>
+<td>the left and right buttons distance from the left and right sides (px)</td>
+<td><code>30</code></td>
+<td><code>Number</code></td>
+</tr>
+<tr>
+<td align="left"><code>autoPlay</code></td>
+<td>whether or not to automatically play the switch needs to be set to false</td>
+<td><code>true</code></td>
+<td><code>Boolean</code></td>
+</tr>
+<tr>
+<td align="left"><code>switchSingleStep</code></td>
+<td>the size of a single step switch (px)</td>
+<td><code>134</code></td>
+<td><code>Number</code></td>
+</tr>
+<tr>
+<td align="left"><code>switchDelay</code></td>
+<td>the animation time of a single step switch(ms)</td>
+<td><code>400</code></td>
+<td><code>Number</code></td>
+</tr>
+<tr>
+<td align="left"><code>switchDisabledClass</code></td>
+<td>the className of the switch parent element that cannot be clicked</td>
+<td><code>disabled</code></td>
+<td><code>String</code></td>
+</tr>
+<tr>
+<td align="left"><code>isSingleRemUnit</code></td>
+<td>singleHeight and singleWidth Whether to enable the rem metric</td>
+<td><code>false</code></td>
+<td><code>Boolean</code></td>
+</tr>
+</tbody>
+</table>
+
+
 
 ---
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+---
