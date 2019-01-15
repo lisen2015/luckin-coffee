@@ -1,3 +1,10 @@
+<!--
+ * @Author: Li.chen
+ * @Date: 2019-01-09 15:24:15
+ * @LastEditors: Li.chen
+ * @LastEditTime: 2019-01-15 14:09:59
+ * @Description: File Description .
+ -->
 <template>
   <div id="Welcome">
     <div class="btn-back">
@@ -17,7 +24,7 @@
 </template>
 
 <script>
-import Index from "./script";
+import Index from "./js/";
 export default {
   name: "Welcome",
   data() {
@@ -52,6 +59,6 @@ export default {
 </script>
 
 <style scoped>
-@import "./style.css";
+@import "./css/";
 </style>
 

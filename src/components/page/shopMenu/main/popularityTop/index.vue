@@ -1,3 +1,10 @@
+<!--
+ * @Author: Li.chen
+ * @Date: 2019-01-11 18:25:39
+ * @LastEditors: Li.chen
+ * @LastEditTime: 2019-01-15 16:25:55
+ * @Description: File Description .
+ -->
 <template>
   <div id="PopularityTop" ref="PopularityTop">
     <seamlessScroll
@@ -21,7 +28,7 @@
 </template>
 
 <script>
-import Index from "./script";
+import Index from "./js/";
 import seamlessScroll from "vue-seamless-scroll"; // npm install vue-seamless-scroll --save
 export default {
   name: "popularityTop",
@@ -43,20 +50,58 @@ export default {
   components: {
     seamlessScroll
   },
-  created() {},
   computed: {
     classOption() {
       const _this = this;
       return _this.options;
     }
   },
-  mounted() {
+  beforeCreate() {  // beforeCreate创建前状态
     const _this = this;
+    console.group("------beforeCreate创建前状态------");
+  },
+  created() { // created创建完毕状态
+    const _this = this;
+    console.group("------created创建完毕状态------");
+  },
+  beforeMount() { // beforeMount挂载前状态
+    const _this = this;
+    console.group("------beforeMount挂载前状态------");
+    _this.$store.commit('changeLoadingFlag');
+  },
+  mounted() { // mounted挂载结束状态
+    const _this = this;
+    console.group("------mounted挂载结束状态------");
     // 获取模块高度
     const elHeight = _this.$refs.PopularityTop.offsetHeight;
     const et = parseInt(elHeight / _this.liHeight);
     // 单页显示数据总数 / 是否滚动
     _this.options.limitMoveNum = elHeight % _this.liHeight > 0 ? et + 1 : et;
+    _this.$store.dispatch('commitLoadingFlag');
+    this.$nextTick(function () {
+      // Code that will run only after the
+      // entire view has been rendered
+      console.log(1111111111111111111);
+      _this.newsList[0].title = _this.newsList[0].title.replace('111', '#########################');
+    })
+  },
+  beforeUpdate() { // beforeUpdate更新前状态
+    const _this = this;
+    console.group("beforeUpdate更新前状态===============》");
+    _this.$store.commit('changeLoadingFlag');
+  },
+  updated() { // updated更新完成状态
+    const _this = this;
+    console.group("updated更新完成状态===============》");
+    _this.$store.dispatch('commitLoadingFlag');
+  },
+  beforeDestroy() { // beforeDestroy销毁前状态
+    const _this = this;
+    console.group("beforeDestroy销毁前状态===============》");
+  },
+  destroyed() { // destroyed销毁完成状态
+    const _this = this;
+    console.group("destroyed销毁完成状态===============》");
   },
   methods: {
     end() {
@@ -68,5 +113,5 @@ export default {
 </script>
 
 <style scoped>
-@import "./style.css";
+@import "./css/";
 </style>

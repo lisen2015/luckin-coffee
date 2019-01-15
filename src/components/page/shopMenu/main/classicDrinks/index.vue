@@ -1,10 +1,13 @@
+<!--
+ * @Author: Li.chen
+ * @Date: 2019-01-11 18:37:58
+ * @LastEditors: Li.chen
+ * @LastEditTime: 2019-01-15 16:07:37
+ * @Description: File Description .
+ -->
 <template>
   <div id="ClassicDrinks" ref="ClassicDrinks">
-    <seamlessScroll
-      :data="newsList"
-      :class-option="classOption"
-      @ScrollEnd="end"
-    >
+    <seamlessScroll :data="newsList" :class-option="classOption" @ScrollEnd="end">
       <ul class="scrollList" ref="scrollList">
         <li v-for="(item, idx) in newsList" :key="idx">
           <a
@@ -21,7 +24,7 @@
 </template>
 
 <script>
-import Index from "./script";
+import Index from "./js/";
 import seamlessScroll from "vue-seamless-scroll"; // npm install vue-seamless-scroll --save
 export default {
   name: "classicDrinks",
@@ -50,6 +53,11 @@ export default {
       return _this.options;
     }
   },
+  beforeMount() { // beforeMount挂载前状态
+    const _this = this;
+    console.group("------beforeMount挂载前状态------");
+    _this.$store.commit('changeLoadingFlag');
+  },
   mounted() {
     const _this = this;
     // 获取模块高度
@@ -57,6 +65,7 @@ export default {
     const et = parseInt(elHeight / _this.liHeight);
     // 单页显示数据总数 / 是否滚动
     _this.options.limitMoveNum = elHeight % _this.liHeight > 0 ? et + 1 : et;
+    _this.$store.dispatch('commitLoadingFlag');
   },
   methods: {
     end() {
@@ -68,5 +77,5 @@ export default {
 </script>
 
 <style scoped>
-@import "./style.css";
+@import "./css/";
 </style>

@@ -1,3 +1,10 @@
+<!--
+ * @Author: Li.chen
+ * @Date: 2019-01-09 19:05:53
+ * @LastEditors: Li.chen
+ * @LastEditTime: 2019-01-15 15:29:07
+ * @Description: File Description .
+ -->
 <template>
   <div id="Menu">
     <ul class="item-list">
@@ -12,7 +19,7 @@
 </template>
 
 <script>
-import Index from './script'
+import Index from './js/'
 export default {
   name: "bottom-menu",
   data() {
@@ -36,6 +43,6 @@ export default {
 </script>
 
 <style scoped>
-@import "./style.css";
+@import "./css/";
 </style>
 

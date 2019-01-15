@@ -1,3 +1,10 @@
+<!--
+ * @Author: Li.chen
+ * @Date: 2019-01-09 18:22:33
+ * @LastEditors: Li.chen
+ * @LastEditTime: 2019-01-15 15:00:37
+ * @Description: File Description .
+ -->
 <template>
   <div id="Index">
     <el-carousel class="swiper_banner" :autoplay="true" arrow="always">
@@ -29,12 +36,12 @@
         </li>
       </ul>
     </el-card>
-    <img src="@/assets/images/logo_1080.png" class="fot_banner" alt>
+    <img src="./img/logo_1080.png" class="fot_banner" alt>
   </div>
 </template>
 
 <script>
-import Index from "./script";
+import Index from "./js/";
 export default {
   name: "Index",
   data() {
@@ -50,7 +57,7 @@ export default {
 </script>
 
 <style scoped>
-@import "./style.css";
+@import "./css/";
 </style>
 
 <style lang="less">
