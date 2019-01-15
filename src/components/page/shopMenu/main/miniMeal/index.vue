@@ -2,7 +2,7 @@
  * @Author: Li.chen
  * @Date: 2019-01-11 18:38:06
  * @LastEditors: Li.chen
- * @LastEditTime: 2019-01-15 16:09:05
+ * @LastEditTime: 2019-01-15 17:34:26
  * @Description: File Description .
  -->
 <!-- Created by Li.chen on 19/01/15. -->
@@ -45,37 +45,37 @@ export default {
   },
   beforeCreate() {  // beforeCreate创建前状态
     const _this = this;
-    console.group("------beforeCreate创建前状态------");
+    // console.group("------beforeCreate创建前状态------");
   },
   created() { // created创建完毕状态
     const _this = this;
-    console.group("------created创建完毕状态------");
+    // console.group("------created创建完毕状态------");
   },
   beforeMount() { // beforeMount挂载前状态
     const _this = this;
-    console.group("------beforeMount挂载前状态------");
+    // console.group("------beforeMount挂载前状态------");
     _this.$store.commit('changeLoadingFlag');
   },
   mounted() { // mounted挂载结束状态
     const _this = this;
-    console.group("------mounted挂载结束状态------");
+    // console.group("------mounted挂载结束状态------");
     _this.$store.dispatch('commitLoadingFlag');
   },
   beforeUpdate() { // beforeUpdate更新前状态
     const _this = this;
-    console.group("beforeUpdate更新前状态===============》");
+    // console.group("beforeUpdate更新前状态===============》");
   },
   updated() { // updated更新完成状态
     const _this = this;
-    console.group("updated更新完成状态===============》");
+    // console.group("updated更新完成状态===============》");
   },
   beforeDestroy() { // beforeDestroy销毁前状态
     const _this = this;
-    console.group("beforeDestroy销毁前状态===============》");
+    // console.group("beforeDestroy销毁前状态===============》");
   },
   destroyed() { // destroyed销毁完成状态
     const _this = this;
-    console.group("destroyed销毁完成状态===============》");
+    // console.group("destroyed销毁完成状态===============》");
   },
   methods: {
     init() {
@@ -85,8 +85,8 @@ export default {
 };
 </script>
 
-<style scoped>
-@import "./css/";
+<style lang="less" scoped>
+@import "./css/index.less";
 </style>
 
 <style lang="less">

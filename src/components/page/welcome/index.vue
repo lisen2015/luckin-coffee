@@ -2,7 +2,7 @@
  * @Author: Li.chen
  * @Date: 2019-01-09 15:24:15
  * @LastEditors: Li.chen
- * @LastEditTime: 2019-01-15 14:09:59
+ * @LastEditTime: 2019-01-15 17:11:52
  * @Description: File Description .
  -->
 <template>
@@ -58,7 +58,7 @@ export default {
 };
 </script>
 
-<style scoped>
-@import "./css/";
+<style lang="less" scoped>
+@import "./css/index.less";
 </style>
 

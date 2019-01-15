@@ -1,3 +1,10 @@
+/*
+ * @Author: Li.chen
+ * @Date: 2019-01-09 11:52:07
+ * @LastEditors: Li.chen
+ * @LastEditTime: 2019-01-15 16:54:43
+ * @Description: File Description .
+ */
 'use strict'
 const path = require('path')
 const utils = require('./utils')
@@ -32,6 +39,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.less$/,
+        loader: "style-loader!css-loader!less-loader",
+      },
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass", "style-loader!css-loader!less-loader"]
